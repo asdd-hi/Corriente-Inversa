@@ -12,7 +12,24 @@ main {
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
-input, button {
+.input-group {
+  margin-bottom: 1.2rem;
+}
+
+.input-group label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.2rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+  button {
   width: 100%;
   padding: 0.6rem;
   margin: 0.4rem 0;
