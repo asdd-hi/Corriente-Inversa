@@ -13,13 +13,9 @@ main {
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-form{
-  
-  background: white;
-  padding: 2rem;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  color: #444;
+h1, h2 {
+  color: #2a4d69;
+  text-align: center;
 }
 
 .input-group {
@@ -33,7 +29,7 @@ form{
 }
 
 .input-group input {
-  width: 90%;
+  width: 100%;
   padding: 0.5rem;
   margin-top: 0.2rem;
   border-radius: 5px;
