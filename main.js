@@ -1,35 +1,45 @@
-function toRect(magnitude, angleDeg) {
-  const angleRad = angleDeg * Math.PI / 180;
+function toRect(mag, angDeg) {
+  const angRad = angDeg * Math.PI / 180;
   return math.complex({
-    re: magnitude * Math.cos(angleRad),
-    im: magnitude * Math.sin(angleRad)
+    re: mag * Math.cos(angRad),
+    im: mag * Math.sin(angRad)
   });
 }
 
-function calcularDesequilibrio(i1, i2, i3, divisor) {
-  const a = math.complex({ re: -0.5, im: Math.sqrt(3)/2 });  // 120°
-  const a2 = math.complex({ re: -0.5, im: -Math.sqrt(3)/2 }); // 240°
+function calcularDesequilibrio(i1_mag, i1_ang, i2_mag, i2_ang, i3_mag, i3_ang, i_base) {
+  const I1 = toRect(i1_mag, i1_ang);
+  const I2 = toRect(i2_mag, i2_ang);
+  const I3 = toRect(i3_mag, i3_ang);
 
-  const I_pos = math.divide(math.add(i1, math.multiply(a, i2), math.multiply(a2, i3)), 3);
-  const I_neg = math.divide(math.add(i1, math.multiply(a2, i2), math.multiply(a, i3)), 3);
+  const a = math.complex({ re: -0.5, im: Math.sqrt(3)/2 });
+  const a2 = math.complex({ re: -0.5, im: -Math.sqrt(3)/2 });
+
+  const I_pos = math.divide(math.add(I1, math.multiply(a, I2), math.multiply(a2, I3)), 3);
+  const I_neg = math.divide(math.add(I1, math.multiply(a2, I2), math.multiply(a, I3)), 3);
 
   const I_neg_mag = math.abs(I_neg);
-  const desequilibrio_pct = (I_neg_mag / divisor) * 100;
+  const desequilibrio_pct = (I_neg_mag / i_base) * 100;
 
-  return { I_neg_mag: I_neg_mag.toFixed(2), desequilibrio: desequilibrio_pct.toFixed(2) };
+  return {
+    I_neg_mag: I_neg_mag.toFixed(2),
+    desequilibrio: desequilibrio_pct.toFixed(2)
+  };
 }
 
-document.getElementById('calcForm').addEventListener('submit', function (e) {
+document.getElementById('formulario').addEventListener('submit', function (e) {
   e.preventDefault();
 
-  const i1 = toRect(+document.getElementById("i1_mag").value,+document.getElementById("i1_ang").value);
-  const i2 = toRect(+document.getElementById("i2_mag").value,+document.getElementById("i2_ang").value);
-  const i3 = toRect(+document.getElementById("i3_mag").value,+document.getElementById("i3_ang").value);
+  const i1_mag = +document.getElementById('i1_mag').value;
+  const i1_ang = +document.getElementById('i1_ang').value;
+  const i2_mag = +document.getElementById('i2_mag').value;
+  const i2_ang = +document.getElementById('i2_ang').value;
+  const i3_mag = +document.getElementById('i3_mag').value;
+  const i3_ang = +document.getElementById('i3_ang').value;
   const divisor = +document.getElementById('divisor').value;
 
-  const resultado = calcularDesequilibrio(i1, i2, i3, divisor);
+  const { I_neg_mag, desequilibrio } = calcularDesequilibrio(i1_mag, i1_ang, i2_mag, i2_ang, i3_mag, i3_ang, divisor);
 
-  document.getElementById('i_neg').textContent = resultado.I_neg_mag;
-  document.getElementById('desequilibrio').textContent = resultado.desequilibrio;
+  document.getElementById('i_neg').textContent = I_neg_mag;
+  document.getElementById('desequilibrio').textContent = desequilibrio;
   document.getElementById('resultado').classList.remove('hidden');
 });
