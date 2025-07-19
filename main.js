@@ -22,11 +22,11 @@ function calcularDesequilibrio(i1, i2, i3, divisor) {
 document.getElementById('calcForm').addEventListener('submit', function (e) {
   e.preventDefault();
 
-  let divisor= "";
   const i1 = toRect(+i1_mag.value, +i1_ang.value);
   const i2 = toRect(+i2_mag.value, +i2_ang.value);
   const i3 = toRect(+i3_mag.value, +i3_ang.value);
-  const divisor = +divisor.value;
+  var divisor = 0;
+  divisor= +divisor.value;
 
   const resultado = calcularDesequilibrio(i1, i2, i3, divisor);
 
