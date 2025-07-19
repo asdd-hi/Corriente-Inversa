@@ -11,8 +11,9 @@ main {
   padding: 2rem;
   
 }
-form {
+fieldset {
   border: none;
+  border-top:5px;
 }
 
 h1, h2 {
