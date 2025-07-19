@@ -11,6 +11,9 @@ main {
   padding: 2rem;
   
 }
+form {
+  border-style: none;
+}
 
 h1, h2 {
   color: #2a4d69;
