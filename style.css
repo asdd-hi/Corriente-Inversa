@@ -12,6 +12,16 @@ main {
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
+
+form{
+  
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  color: #444;
+}
+
 .input-group {
   margin-bottom: 1.2rem;
 }
