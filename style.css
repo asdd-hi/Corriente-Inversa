@@ -12,7 +12,7 @@ main {
   
 }
 form {
-  border-style: none;
+  border: none;
 }
 
 h1, h2 {
