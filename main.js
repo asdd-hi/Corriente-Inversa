@@ -19,7 +19,6 @@ function calcularDesequilibrio(i1_mag, i1_ang, i2_mag, i2_ang, i3_mag, i3_ang, i
 
   const I_neg_mag = math.abs(I_neg);
   const desequilibrio_pct = (I_neg_mag / i_base) * 100;
-
   return {
     I_neg_mag: I_neg_mag.toFixed(2),
     desequilibrio: desequilibrio_pct.toFixed(2)
