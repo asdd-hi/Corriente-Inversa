@@ -11,8 +11,8 @@ function calcularDesequilibrio(i1_mag, i1_ang, i2_mag, i2_ang, i3_mag, i3_ang, i
   const I2 = toRect(i2_mag, i2_ang);
   const I3 = toRect(i3_mag, i3_ang);
 
-  const a = math.complex({ re: -0.5, im: Math.sqrt(3)/2 });
-  const a2 = math.complex({ re: -0.5, im: -Math.sqrt(3)/2 });
+  const a  = math.complex({ abs: 1, arg: 2 * Math.PI / 3 });  // 120°
+  const a2 = math.complex({ abs: 1, arg: 4 * Math.PI / 3 });  // 240°
 
   const I_pos = math.divide(math.add(I1, math.multiply(a, I2), math.multiply(a2, I3)), 3);
   const I_neg = math.divide(math.add(I1, math.multiply(a2, I2), math.multiply(a, I3)), 3);
