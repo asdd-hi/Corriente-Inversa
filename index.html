@@ -12,22 +12,30 @@
     <form id="formulario">
       <fieldset>
         <legend>Datos de Corriente</legend>
-
+        
+      <div class="input-group">
         <label>Fase 1:</label>
         <input id="i1_mag" placeholder="Magnitud I1" type="number" step="0.01" required>
         <input id="i1_ang" placeholder="Ángulo I1 (°)" type="number" step="0.1" required>
-
+         </div>
+        
+<div class="input-group">
         <label>Fase 2:</label>
         <input id="i2_mag" placeholder="Magnitud I2" type="number" step="0.01" required>
         <input id="i2_ang" placeholder="Ángulo I2 (°)" type="number" step="0.1" required>
-
+  </div>
+        
+  <div class="input-group">
         <label>Fase 3:</label>
         <input id="i3_mag" placeholder="Magnitud I3" type="number" step="0.01" required>
         <input id="i3_ang" placeholder="Ángulo I3 (°)" type="number" step="0.1" required>
-
+  </div>
+  
+    <div class="input-group">
         <label>Divisor desequilibrio:</label>
         <input id="divisor" placeholder="Ej: 96" type="number" step="0.01" value="96" required>
-
+  </div>
+    
         <button type="submit">Calcular</button>
       </fieldset>
     </form>
